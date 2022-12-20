@@ -1,8 +1,13 @@
 FROM summerwind/actions-runner:latest
 
+# Installing 'less'
 RUN sudo apt-get update -y \
     && sudo apt-get install less \
     && sudo rm -rf /var/lib/apt/lists/*
+
+RUN sudo locale-gen "en_US.UTF-8"
+RUN export LANG="en_US.UTF-8"
+RUN export LC_ALL="en_US.UTF-8"
 
 # Install AWS CLI v2
 RUN ( \
